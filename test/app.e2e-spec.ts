@@ -23,6 +23,20 @@ describe('AppController (e2e)', () => {
       .expect('Personal Coach');
   });
 
+  it('/coaches (POST)', () => {
+  return request(app.getHttpServer())
+    .post('/coaches')
+    .send({
+      name: 'Agus',
+      email: 'agus@example.com',
+    })
+    .expect(201)
+    .expect(( { body } ) => {
+      expect(body.name).toBe('Agus');
+      expect(body.email).toBe('agus@example.com');
+    });
+  });
+
   afterEach(async () => {
     await app.close();
   });
