@@ -23,7 +23,7 @@ describe('AppController (e2e)', () => {
       .expect('Personal Coach');
   });
 
-  it('/coaches (POST)', () => {
+  it('creates a coach', () => {
   return request(app.getHttpServer())
     .post('/coaches')
     .send({
